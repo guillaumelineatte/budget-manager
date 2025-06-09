@@ -1,14 +1,20 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useAuth } from '@/hooks/useAuth';
+import { Dashboard } from '@/components/Dashboard';
+import { AuthForm } from '@/components/AuthForm';
 
 const Index = () => {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
+        <div className="animate-pulse text-xl font-semibold">Loading...</div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return user ? <Dashboard /> : <AuthForm />;
 };
 
 export default Index;
