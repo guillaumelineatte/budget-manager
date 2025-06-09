@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { toast } from '@/hooks/use-toast';
+import { useTransactions } from '@/hooks/useTransactions';
 
 interface TransactionFormProps {
   onSuccess?: () => void;
@@ -15,16 +15,22 @@ export const TransactionForm = ({ onSuccess }: TransactionFormProps) => {
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
+  const { addTransaction } = useTransactions();
 
-  const expenseCategories = ['Alimentation', 'Transport', 'Divertissement', 'Factures', 'Shopping', 'Santé', 'Autre'];
-  const incomeCategories = ['Salaire', 'Freelance', 'Investissement', 'Cadeau', 'Autre'];
+  const expenseCategories = ['Food', 'Transportation', 'Entertainment', 'Utilities', 'Shopping', 'Healthcare', 'Other'];
+  const incomeCategories = ['Salary', 'Freelance', 'Investment', 'Gift', 'Other'];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!amount || !category) return;
 
-    // Simulation d'ajout de transaction en mode démo
-    toast({ title: "Transaction ajoutée (mode démo)" });
+    await addTransaction({
+      type,
+      amount: parseFloat(amount),
+      category,
+      description,
+      date: new Date().toISOString()
+    });
 
     setAmount('');
     setCategory('');
@@ -42,29 +48,29 @@ export const TransactionForm = ({ onSuccess }: TransactionFormProps) => {
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="income">Revenus</SelectItem>
-              <SelectItem value="expense">Dépenses</SelectItem>
+              <SelectItem value="income">Income</SelectItem>
+              <SelectItem value="expense">Expense</SelectItem>
             </SelectContent>
           </Select>
         </div>
         <div className="space-y-2">
-          <Label>Montant</Label>
+          <Label>Amount</Label>
           <Input
             type="number"
             step="0.01"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            placeholder="0,00"
+            placeholder="0.00"
             required
           />
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label>Catégorie</Label>
+        <Label>Category</Label>
         <Select value={category} onValueChange={setCategory}>
           <SelectTrigger>
-            <SelectValue placeholder="Sélectionner une catégorie" />
+            <SelectValue placeholder="Select category" />
           </SelectTrigger>
           <SelectContent>
             {(type === 'expense' ? expenseCategories : incomeCategories).map((cat) => (
@@ -79,7 +85,7 @@ export const TransactionForm = ({ onSuccess }: TransactionFormProps) => {
         <Input
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Description optionnelle"
+          placeholder="Optional description"
         />
       </div>
 
@@ -87,7 +93,7 @@ export const TransactionForm = ({ onSuccess }: TransactionFormProps) => {
         type="submit" 
         className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105"
       >
-        Ajouter la transaction
+        Add Transaction
       </Button>
     </form>
   );
