@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,8 +16,8 @@ export const TransactionForm = ({ onSuccess }: TransactionFormProps) => {
   const [description, setDescription] = useState('');
   const { addTransaction } = useTransactions();
 
-  const expenseCategories = ['Food', 'Transportation', 'Entertainment', 'Utilities', 'Shopping', 'Healthcare', 'Other'];
-  const incomeCategories = ['Salary', 'Freelance', 'Investment', 'Gift', 'Other'];
+  const expenseCategories = ['Alimentation', 'Transport', 'Loisirs', 'Factures', 'Shopping', 'Santé', 'Autre'];
+  const incomeCategories = ['Salaire', 'Freelance', 'Investissement', 'Cadeau', 'Autre'];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,13 +47,13 @@ export const TransactionForm = ({ onSuccess }: TransactionFormProps) => {
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="income">Income</SelectItem>
-              <SelectItem value="expense">Expense</SelectItem>
+              <SelectItem value="income">Revenu</SelectItem>
+              <SelectItem value="expense">Dépense</SelectItem>
             </SelectContent>
           </Select>
         </div>
         <div className="space-y-2">
-          <Label>Amount</Label>
+          <Label>Montant</Label>
           <Input
             type="number"
             step="0.01"
@@ -67,10 +66,10 @@ export const TransactionForm = ({ onSuccess }: TransactionFormProps) => {
       </div>
 
       <div className="space-y-2">
-        <Label>Category</Label>
+        <Label>Catégorie</Label>
         <Select value={category} onValueChange={setCategory}>
           <SelectTrigger>
-            <SelectValue placeholder="Select category" />
+            <SelectValue placeholder="Sélectionner une catégorie" />
           </SelectTrigger>
           <SelectContent>
             {(type === 'expense' ? expenseCategories : incomeCategories).map((cat) => (
@@ -85,7 +84,7 @@ export const TransactionForm = ({ onSuccess }: TransactionFormProps) => {
         <Input
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Optional description"
+          placeholder="Description (optionnelle)"
         />
       </div>
 
@@ -93,7 +92,7 @@ export const TransactionForm = ({ onSuccess }: TransactionFormProps) => {
         type="submit" 
         className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105"
       >
-        Add Transaction
+        Ajouter la transaction
       </Button>
     </form>
   );

@@ -16,13 +16,13 @@ export const AuthForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     if (isSignUp) {
       await signUp(email, password);
     } else {
       await signIn(email, password);
     }
-    
+
     setLoading(false);
   };
 
@@ -34,7 +34,7 @@ export const AuthForm = () => {
             BudgetMaster
           </CardTitle>
           <p className="text-muted-foreground">
-            {isSignUp ? 'Create your account' : 'Welcome back'}
+            {isSignUp ? 'Créer un compte' : 'Bienvenue'}
           </p>
         </CardHeader>
         <CardContent>
@@ -51,7 +51,7 @@ export const AuthForm = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">Mot de passe</Label>
               <Input
                 id="password"
                 type="password"
@@ -61,21 +61,21 @@ export const AuthForm = () => {
                 className="transition-all duration-200 focus:scale-[1.02]"
               />
             </div>
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105"
               disabled={loading}
             >
-              {loading ? 'Loading...' : (isSignUp ? 'Sign Up' : 'Sign In')}
+              {loading ? 'Loading...' : (isSignUp ? 'S\'enregistrer' : 'Se connecter')}
             </Button>
           </form>
           <div className="mt-4 text-center">
-            <Button 
-              variant="link" 
+            <Button
+              variant="link"
               onClick={() => setIsSignUp(!isSignUp)}
               className="text-sm hover:scale-105 transition-transform duration-200"
             >
-              {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
+              {isSignUp ? 'Tu as déjà un compte ? Connecte toi' : "Tu n'as pas encore de compte ? Enregistre toi"}
             </Button>
           </div>
         </CardContent>

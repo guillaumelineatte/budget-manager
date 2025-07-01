@@ -1,4 +1,3 @@
-
 export interface Transaction {
   id: string;
   type: 'income' | 'expense';
@@ -7,6 +6,7 @@ export interface Transaction {
   description: string;
   date: string;
   userId: string;
+  month: string; // Format: "YYYY-MM"
 }
 
 export interface Budget {

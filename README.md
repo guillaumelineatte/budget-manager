@@ -1,73 +1,53 @@
-# Welcome to your Lovable project
+# Budget Manager
 
-## Project info
+Une application de gestion de budget personnelle construite avec React et Firebase.
 
-**URL**: https://lovable.dev/projects/4107ce09-c6ff-46e4-bef4-f5b217780c73
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/4107ce09-c6ff-46e4-bef4-f5b217780c73) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
+## Technologies utilisées
 
 - Vite
 - TypeScript
 - React
 - shadcn-ui
 - Tailwind CSS
+- Firebase (Authentication & Firestore)
 
-## How can I deploy this project?
+## Installation
 
-Simply open [Lovable](https://lovable.dev/projects/4107ce09-c6ff-46e4-bef4-f5b217780c73) and click on Share -> Publish.
+```sh
+# Étape 1 : Cloner le repository
+git clone <URL_DU_REPO>
 
-## Can I connect a custom domain to my Lovable project?
+# Étape 2 : Naviguer vers le répertoire du projet
+cd budget-manager
 
-Yes, you can!
+# Étape 3 : Installer les dépendances
+npm install
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+# Étape 4 : Démarrer le serveur de développement
+npm run dev
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Configuration
+
+1. Créez un projet Firebase
+2. Activez l'authentification par email/mot de passe
+3. Créez une base de données Firestore
+4. Copiez les variables d'environnement dans un fichier `.env` :
+```
+VITE_FIREBASE_API_KEY=votre_api_key
+VITE_FIREBASE_AUTH_DOMAIN=votre_auth_domain
+VITE_FIREBASE_PROJECT_ID=votre_project_id
+VITE_FIREBASE_STORAGE_BUCKET=votre_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=votre_messaging_sender_id
+VITE_FIREBASE_APP_ID=votre_app_id
+VITE_FIREBASE_MEASUREMENT_ID=votre_measurement_id
+```
+
+## Fonctionnalités
+
+- Authentification des utilisateurs
+- Gestion des revenus mensuels
+- Suivi des dépenses par catégorie
+- Visualisation des statistiques
+- Graphiques de répartition des dépenses
+- Interface responsive et moderne
