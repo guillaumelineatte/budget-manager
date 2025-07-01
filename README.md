@@ -52,3 +52,4 @@ VITE_FIREBASE_MEASUREMENT_ID=votre_measurement_id
 - Graphiques de répartition des dépenses
 - Interface responsive et moderne
 # Test deployment
+# Force new deployment Tue Jul  1 23:57:24 UTC 2025
