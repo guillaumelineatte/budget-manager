@@ -31,7 +31,7 @@ export const AuthForm = () => {
       <Card className="w-full max-w-md shadow-2xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
         <CardHeader className="text-center space-y-2">
           <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            BudgetMaster
+            Budget Manager
           </CardTitle>
           <p className="text-muted-foreground">
             {isSignUp ? 'Créer un compte' : 'Bienvenue'}
