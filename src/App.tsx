@@ -14,20 +14,17 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const AppContent = () => {
-  // Temporairement, affichons directement AuthForm pour tester
-  return <AuthForm />;
-  
-  // const { user, loading } = useAuth();
+  const { user, loading } = useAuth();
 
-  // if (loading) {
-  //   return (
-  //     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
-  //       <div className="animate-pulse text-xl font-semibold">Loading...</div>
-  //     </div>
-  //   );
-  // }
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
+        <div className="animate-pulse text-xl font-semibold">Chargement...</div>
+      </div>
+    );
+  }
 
-  // return user ? <Dashboard /> : <AuthForm />;
+  return user ? <Dashboard /> : <AuthForm />;
 };
 
 const App = () => (
