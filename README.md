@@ -51,3 +51,4 @@ VITE_FIREBASE_MEASUREMENT_ID=votre_measurement_id
 - Visualisation des statistiques
 - Graphiques de répartition des dépenses
 - Interface responsive et moderne
+# Test deployment
