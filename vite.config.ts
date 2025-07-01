@@ -9,6 +9,7 @@ export default defineConfig({
     port: 8080,
   },
   plugins: [react()],
+  base: './', // Utilise des chemins relatifs pour GitHub Pages
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
