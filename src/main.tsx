@@ -1,12 +1,17 @@
-import { createRoot } from 'react-dom/client'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-const rootElement = document.getElementById("root");
+// Debug: vérifier les variables d'environnement
+console.log('Environment variables check:', {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY ? '***' + import.meta.env.VITE_FIREBASE_API_KEY.slice(-4) : 'undefined',
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID
+});
 
-if (!rootElement) {
-  throw new Error("Root element not found");
-}
-
-const root = createRoot(rootElement);
-root.render(<App />);
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)

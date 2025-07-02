@@ -20,8 +20,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
+      - name: Debug environment variables
+        run: |
+          echo "Checking Firebase environment variables:"
+          echo "API_KEY exists: ${{ secrets.VITE_FIREBASE_API_KEY != '' }}"
+          echo "AUTH_DOMAIN exists: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN != '' }}"
+          echo "PROJECT_ID exists: ${{ secrets.VITE_FIREBASE_PROJECT_ID != '' }}"
+          echo "AUTH_DOMAIN value: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}"
+        
       - name: Build
-        run: npm run build
+        run: |
+          echo "Building with environment variables..."
+          npm run build
         env:
           VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
           VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
