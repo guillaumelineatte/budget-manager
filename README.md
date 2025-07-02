@@ -1,6 +1,34 @@
 # Budget Manager
 
-Une application de gestion de budget personnelle construite avec React et Firebase.
+Application de gestion de budget personnelle construite avec React, TypeScript, Vite et Firebase.
+
+## Fonctionnalités
+
+- 🔐 Authentification Firebase
+- 💰 Gestion des dépenses et revenus
+- 📊 Tableaux de bord et graphiques
+- 🎨 Interface moderne avec Tailwind CSS et shadcn/ui
+- 📱 Design responsive
+
+## Développement
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Déploiement
+
+L'application est déployée automatiquement sur GitHub Pages via GitHub Actions.
+
+**Test déploiement Firebase - $(date)**
 
 ## Technologies utilisées
 
@@ -10,22 +38,6 @@ Une application de gestion de budget personnelle construite avec React et Fireba
 - shadcn-ui
 - Tailwind CSS
 - Firebase (Authentication & Firestore)
-
-## Installation
-
-```sh
-# Étape 1 : Cloner le repository
-git clone <URL_DU_REPO>
-
-# Étape 2 : Naviguer vers le répertoire du projet
-cd budget-manager
-
-# Étape 3 : Installer les dépendances
-npm install
-
-# Étape 4 : Démarrer le serveur de développement
-npm run dev
-```
 
 ## Configuration
 
